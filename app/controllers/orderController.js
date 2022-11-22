@@ -78,7 +78,10 @@ const getAllOrder = (req, res) => {
             path: 'orderDetails',
             populate: {
                 path: 'product',
-                model: 'products'
+                populate: ({
+                    path: "type",
+                    model: "productType"
+                })
             }
         })
         .exec((error, data) => {
@@ -108,11 +111,14 @@ const getOrderById = (req, res) => {
     //B3: Thao tác với cơ sở dữ liệu
 
     orderModel.findById(orderId)
-        .populate('buyer').populate({
+        .populate("buyer").populate({
             path: 'orderDetails',
             populate: {
                 path: 'product',
-                model: 'products'
+                populate: ({
+                    path: "type",
+                    model: "productType"
+                })
             }
         })
         .exec((error, data) => {
