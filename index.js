@@ -32,7 +32,7 @@ const orderRouter = require('./app/routes/orderRoute');
 const customerRouter = require("./app/routes/customerRoute")
 
 
-mongoose.connect('mongodb://localhost:27017/CRUD_Shop24h', function (error) {
+mongoose.connect('mongodb+srv://KateAloha:Khuyen%402000@cluster0.m6kmxcp.mongodb.net/test', function (error) {
     if (error) throw error;
     console.log('connect success');
 })
